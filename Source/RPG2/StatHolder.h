@@ -17,6 +17,10 @@ class RPG2_API UStatHolder : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UStatHolder();
+	UPROPERTY(BlueprintReadOnly, SaveGame, VisibleAnywhere, meta = (DisplayName = "HP", Category = "Stat"))
+		int HP = 10;
+	UPROPERTY(BlueprintReadOnly, SaveGame, VisibleAnywhere, meta = (DisplayName = "Weapon Skill", Category = "Stat"))
+		int WeaponSkill = 10;
 	UPROPERTY(BlueprintReadOnly, SaveGame, VisibleAnywhere, meta = (DisplayName = "Stat Array", Category = "Stat"))
 		TArray<int32> StatArray =
 	{
@@ -50,6 +54,7 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		int32 getStat(EStatName StatToGet) { return StatArray[(uint8)StatToGet]; }
+	
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		int32 getMoral(EMorality MoralToGet) { return MoralityArray[(uint8)MoralToGet]; }
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
