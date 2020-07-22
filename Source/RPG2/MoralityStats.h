@@ -4,14 +4,14 @@
 
 #include "CoreMinimal.h"
 #include "Engine/UserDefinedEnum.h"
-#include "MoraliityStats.generated.h"
+#include "MoralityStats.generated.h"
 
 /**
  * 
  */
 
 UENUM(Meta = (Bitflags))
-enum class EffdMorality : uint8
+enum class EMorality : uint8
 {
 	SELFLESS = 0x00 UMETA(DisplayName = "Selfless"),		//concerned more with the needs and wishes of others than with one's own
 	SELFCASUAL = 0x01 UMETA(DisplayName = "Self Casual"),	//Gives concern to the needs of others when own needs have been met
@@ -22,7 +22,7 @@ enum class EffdMorality : uint8
 
 };
 UCLASS()
-class RPG2_API UMoraliityStats : public UUserDefinedEnum
+class RPG2_API UMoralityStats : public UUserDefinedEnum
 {
 	GENERATED_BODY()
 	

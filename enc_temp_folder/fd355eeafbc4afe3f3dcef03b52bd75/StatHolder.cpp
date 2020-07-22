@@ -32,13 +32,3 @@ void UStatHolder::TickComponent(float DeltaTime, ELevelTick TickType, FActorComp
 	// ...
 }
 
-void UStatHolder::modStat(EStatName StatToMod, int32 amt)
-{
-	StatArray[(uint8)StatToMod] += amt;
-}
-
-void UStatHolder::modMoral(EMorality MoralToMod, int32 amt)
-{
-	MoralityArray[(uint8)MoralToMod] += amt;
-}
-
