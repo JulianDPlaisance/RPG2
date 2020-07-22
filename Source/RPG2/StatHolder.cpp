@@ -32,6 +32,16 @@ void UStatHolder::TickComponent(float DeltaTime, ELevelTick TickType, FActorComp
 	// ...
 }
 
+void UStatHolder::addHP(int32 val)
+{
+	HP += val;
+}
+
+void UStatHolder::addWeaponSkill(int32 val)
+{
+	WeaponSkill += val;
+}
+
 void UStatHolder::modStat(EStatName StatToMod, int32 amt)
 {
 	StatArray[(uint8)StatToMod] += amt;

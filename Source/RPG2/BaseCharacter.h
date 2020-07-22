@@ -4,7 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
-#include "StatHolder.h"
+#include <RPG2\StatHolder.h>
+#include <RPG2\BaseWeapon.h>
 #include "BaseCharacter.generated.h"
 
 UCLASS()
@@ -15,6 +16,9 @@ class RPG2_API ABaseCharacter : public APawn
 public:
 	// Sets default values for this pawn's properties
 	ABaseCharacter();
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, meta = (DisplayName = "Stats Holder", Category = "Char_Stat"))
+	UStatHolder* stat;
+	//UBaseWeapon weapon;
 	
 
 protected:

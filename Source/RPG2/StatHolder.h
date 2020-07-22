@@ -53,14 +53,25 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
+		int32 getHP() { return HP; }
+	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
+		int32 getWeaponSkill() { return WeaponSkill; }
+	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		int32 getStat(EStatName StatToGet) { return StatArray[(uint8)StatToGet]; }
-	
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		int32 getMoral(EMorality MoralToGet) { return MoralityArray[(uint8)MoralToGet]; }
+	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
+		void setHP(int32 val) { HP = val; }
+	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
+		void setWeaponSkill(int32 val) { WeaponSkill = val; }
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		void setStat(EStatName StatToSet, int32 val) { StatArray[(uint8)StatToSet] = val; }
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		void setMoral(EMorality MoralToSet, int32 val) { MoralityArray[(uint8)MoralToSet] = val; }
+	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
+		void addHP(int32 val);
+	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
+		void addWeaponSkill(int32 val);
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		void modStat(EStatName StatToMod, int32 amt);
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
