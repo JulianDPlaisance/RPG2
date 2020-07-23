@@ -18,7 +18,8 @@ public:
 	ABaseCharacter();
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, meta = (DisplayName = "Stats Holder", Category = "Char_Stat"))
 	UStatHolder* stat;
-	//UBaseWeapon weapon;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, meta = (DisplayName = "Weapon Holder", Category = "Char_Stat"))
+	UBaseWeapon* weapon;
 	
 
 protected:

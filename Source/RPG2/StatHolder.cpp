@@ -37,7 +37,7 @@ void UStatHolder::addHP(int32 val)
 	HP += val;
 }
 
-void UStatHolder::addWeaponSkill(int32 val)
+void UStatHolder::addWeaponSkill(float val)
 {
 	WeaponSkill += val;
 }

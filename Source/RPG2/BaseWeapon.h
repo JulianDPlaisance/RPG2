@@ -10,7 +10,7 @@
  * 
  */
 UCLASS()
-class RPG2_API UBaseWeapon : public UObject
+class RPG2_API UBaseWeapon : public UActorComponent
 {
 	GENERATED_BODY()
 

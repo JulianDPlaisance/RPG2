@@ -20,7 +20,7 @@ public:
 	UPROPERTY(BlueprintReadOnly, SaveGame, VisibleAnywhere, meta = (DisplayName = "HP", Category = "Stat"))
 		int HP = 10;
 	UPROPERTY(BlueprintReadOnly, SaveGame, VisibleAnywhere, meta = (DisplayName = "Weapon Skill", Category = "Stat"))
-		int WeaponSkill = 10;
+		float WeaponSkill = 0.9f;
 	UPROPERTY(BlueprintReadOnly, SaveGame, VisibleAnywhere, meta = (DisplayName = "Stat Array", Category = "Stat"))
 		TArray<int32> StatArray =
 	{
@@ -55,23 +55,23 @@ public:
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		int32 getHP() { return HP; }
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
-		int32 getWeaponSkill() { return WeaponSkill; }
+		float getWeaponSkill() { return WeaponSkill; }
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
-		int32 getStat(EStatName StatToGet) { return StatArray[(uint8)StatToGet]; }
+		int32 getStat(EStatName StatToGet) { return StatArray[(uint8)StatToGet % 9]; }
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		int32 getMoral(EMorality MoralToGet) { return MoralityArray[(uint8)MoralToGet]; }
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		void setHP(int32 val) { HP = val; }
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
-		void setWeaponSkill(int32 val) { WeaponSkill = val; }
+		void setWeaponSkill(float val) { WeaponSkill = val; }
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
-		void setStat(EStatName StatToSet, int32 val) { StatArray[(uint8)StatToSet] = val; }
+		void setStat(EStatName StatToSet, int32 val) { StatArray[(uint8)StatToSet % 9] = val; }
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		void setMoral(EMorality MoralToSet, int32 val) { MoralityArray[(uint8)MoralToSet] = val; }
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		void addHP(int32 val);
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
-		void addWeaponSkill(int32 val);
+		void addWeaponSkill(float val);
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		void modStat(EStatName StatToMod, int32 amt);
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))

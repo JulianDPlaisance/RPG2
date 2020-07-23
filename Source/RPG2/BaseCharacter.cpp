@@ -9,7 +9,7 @@ ABaseCharacter::ABaseCharacter()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	stat = CreateDefaultSubobject<UStatHolder>(TEXT("Stat Array"));
-
+	weapon = CreateDefaultSubobject<UBaseWeapon>(TEXT("Weapon"));
 }
 
 // Called when the game starts or when spawned
@@ -36,16 +36,18 @@ void ABaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 
 int ABaseCharacter::getAttackChance(ABaseCharacter* other)
 {
-	//int32 weaponAcc = weapon.accuracy * stat.getWeaponSkill();
-	//int32 charAcc = (stat.getStat(EStatName::AGILITY) * 4) + (stat.getStat(EStatName::INTUITION) * 2) + (stat.getStat(EStatName::EMPATHY)) + (stat.getStat(EStatName::LUCK) / 2);
-	//int32 totalAcc = weaponAcc + (charAcc / 2);
-	//return totalAcc;
-	return 0;
+	float weaponAcc = weapon->accuracy * stat->getWeaponSkill();
+	int32 charAcc = (stat->getStat(EStatName::AGILITY) * 4) + (stat->getStat(EStatName::INTUITION) * 2) + (stat->getStat(EStatName::EMPATHY)) + (stat->getStat(EStatName::LUCK) / 2);
+	int32 totalAcc = weaponAcc + (charAcc / 2);
+	return totalAcc;
 }
 
 int ABaseCharacter::getEvadeChance(ABaseCharacter* other)
 {
-	return 0;
+	int32 evasionAgi = (stat->getStat(EStatName::AGILITY) * 2);
+	int32 evasionDiv = (stat->getStat(EStatName::INTUITION) * 2) + (stat->getStat(EStatName::LUCK)) + (stat->getStat(EStatName::EMPATHY) * 3);
+	int32 totalEvasion = evasionAgi + (evasionDiv / 2);
+	return totalEvasion;
 }
 
 int ABaseCharacter::getCritChance(ABaseCharacter* other)
