@@ -7,7 +7,8 @@
 AGrid::AGrid()
 {
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
+	//Columns.Init(NewObject<UGridX>(), 10);
 
 }
 
@@ -15,6 +16,15 @@ AGrid::AGrid()
 void AGrid::BeginPlay()
 {
 	Super::BeginPlay();
+
+	//TCheckedPointerIterator<UGridX*, int32> iter = Columns.begin();
+	//while (iter != Columns.end())
+	//{
+	//	if (iter == nullptr)
+	//	{
+	//		return;
+	//	}
+	//}
 	
 }
 

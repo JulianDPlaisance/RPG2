@@ -3,8 +3,30 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include <Runtime\Engine\Classes\Components\PointLightComponent.h>
 #include "GameFramework/Pawn.h"
 #include "Grid.generated.h"
+
+UCLASS()
+class UGridX : public UObject
+{
+	GENERATED_BODY()
+	
+public:
+
+	//TArray<int> Rows;
+	////UPROPERTY(EditAnywhere, BlueprintReadWrite, meta(Category = "Grid"))
+	//	//UPointLightComponent* lit;
+
+	//UGridX()
+	//{
+	//	Rows.Init(1, 10);
+	//}
+	//UGridX(int num)
+	//{
+	//	Rows.Init(1, num);
+	//}
+};
 
 UCLASS()
 class RPG2_API AGrid : public APawn
@@ -25,5 +47,8 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "GridArray", Category = "Grid"))
+	//TArray<UGridX*> Columns;
 
 };
