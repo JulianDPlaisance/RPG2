@@ -30,3 +30,20 @@ class RPG2_API UBaseStats : public UUserDefinedEnum
 	GENERATED_BODY()
 	
 };
+// natural 1-7; next 8-14; natural 15-21; previous 22-28; special 29-31
+// fire, water, ice, earth, lightning, music
+// divine, cosmic
+/*  
+*   Jan A: Ice,         X: Earth,       P: Music,       S: Fire
+*   Feb A: Earth,       X: Water,       P: Ice,         S: Divine [28th]
+*   Mar A: Water,       X: Lightning,   P: Earth,       S: Fire
+*   Apr A: Lightning,   X: Earth,       P: Water,       S: Divine [1st, otherwise X]
+*   May A: Earth,       X: Music,       P: Lightning,   S: Water
+*   Jun A: Music,       X: Fire,        P: Earth,       S: Ice
+*   Jul A: Fire,        X: Earth,       P: Music,       S: Ice
+*   Aug A: Earth,       X: Earth,       P: Fire,        S: Fire
+*   Sep A: Earth,       X: Cosmic,      P: Earth,       S: Water
+*   Oct A: Cosmic,      X: Water,       P: Earth,       S: Divine [25th-31st]
+*   Nov A: Water,       X: Music,       P: Cosmic,      S: Lightning
+*   Dec A: Music,       X: Ice,         P: Water,       S: Divine [24th-30th]
+*/ 
