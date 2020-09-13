@@ -30,7 +30,7 @@ class RPG2_API UBaseStats : public UUserDefinedEnum
 	GENERATED_BODY()
 	
 };
-// natural 1-7; next 8-14; natural 15-21; previous 22-28; special 29-31
+// natural 1-7; next 8-14; natural 15-21; previous 22-28; special 29-31[rule breaking, i.e. Feb 28th]
 // fire, water, ice, earth, lightning, music
 // divine, cosmic
 /*  
