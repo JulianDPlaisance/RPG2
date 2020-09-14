@@ -3,10 +3,31 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GridRow.h"
-#include <FVector>
 #include "GameFramework/Pawn.h"
 #include "Grid.generated.h"
+
+USTRUCT(BlueprintType)
+struct FGridInfo
+{
+	GENERATED_BODY()
+	
+		
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Grid info", Category = "Grid"))
+		int row;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Grid info", Category = "Grid"))
+		int column;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Grid info", Category = "Grid"))
+		bool bAccessible;
+
+};
+
+USTRUCT(BlueprintType)
+struct FRows
+{
+	GENERATED_BODY()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Grid Rows", Category = "Grid"))
+	TArray<FGridInfo> rows;
+};
 
 UCLASS()
 class RPG2_API AGrid : public APawn
@@ -34,7 +55,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Grid Distance", Category = "Grid"))
 		float distance;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Grid Vectors", Category = "Grid"))
-		TArray<FVector> vectors;
+		TArray<FRows> vectors;
+
 
 	//UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "GridArray", Category = "Grid"))
 	//TArray<AGridRow*> Columns;

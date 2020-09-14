@@ -8,6 +8,14 @@ AGrid::AGrid()
 {
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
+	for (int i = 0; i < 10; i++)
+	{
+		vectors.Add(FRows());
+		for (int j = 0; j < 10; j++)
+		{
+			vectors[i].rows.Add(FGridInfo());
+		}
+	}
 
 }
 
@@ -15,6 +23,8 @@ AGrid::AGrid()
 void AGrid::BeginPlay()
 {
 	Super::BeginPlay();
+
+	//UE_LOG(LogTemp, Warning, TEXT("KASFLKFDL %s", vectors.Pop()));
 	
 }
 
