@@ -3,8 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "ProceduralMeshComponent.h"
 #include "GameFramework/Pawn.h"
 #include "Grid.generated.h"
+
+
 
 USTRUCT(BlueprintType)
 struct FGridInfo
@@ -12,12 +15,14 @@ struct FGridInfo
 	GENERATED_BODY()
 	
 		
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Grid info", Category = "Grid"))
-		int row;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Grid info", Category = "Grid"))
-		int column;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Grid info", Category = "Grid"))
-		bool bAccessible;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Tile_Row", Category = "Grid"))
+		int row = -1;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Tile_Column", Category = "Grid"))
+		int column = -1;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "bAccessible?", Category = "Grid"))
+		bool bAccessible = false;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "ProceduralMeshComponent", Category = "Grid"))
+		UProceduralMeshComponent* tileMesh;
 
 };
 
@@ -48,12 +53,6 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Grid Rows", Category = "Grid"))
-		int rows;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Grid Columns", Category = "Grid"))
-		int columns;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Grid Distance", Category = "Grid"))
-		float distance;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Grid Vectors", Category = "Grid"))
 		TArray<FRows> vectors;
 
