@@ -23,7 +23,6 @@ struct FGridInfo
 		bool bAccessible = false;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "ProceduralMeshComponent", Category = "Grid"))
 		UProceduralMeshComponent* tileMesh;
-
 };
 
 USTRUCT(BlueprintType)
@@ -55,6 +54,12 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Grid Vectors", Category = "Grid"))
 		TArray<FRows> vectors;
+
+	UFUNCTION(BlueprintCallable)
+		void setMesh(int col, int row, UProceduralMeshComponent* MeshToSet)
+	{
+		vectors[col].rows[row].tileMesh = MeshToSet;
+	};
 
 
 	//UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "GridArray", Category = "Grid"))
