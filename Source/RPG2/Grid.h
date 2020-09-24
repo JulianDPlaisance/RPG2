@@ -21,8 +21,8 @@ struct FGridInfo
 		int column = -1;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "bAccessible?", Category = "Grid"))
 		bool bAccessible = false;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "ProceduralMeshComponent", Category = "Grid"))
-		UProceduralMeshComponent* tileMesh;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Static Mesh Component", Category = "Grid"))
+		UStaticMeshComponent* land;
 };
 
 USTRUCT(BlueprintType)
@@ -56,9 +56,9 @@ public:
 		TArray<FRows> vectors;
 
 	UFUNCTION(BlueprintCallable)
-		void setMesh(int col, int row, UProceduralMeshComponent* MeshToSet)
+		void setMesh(int col, int row, UStaticMeshComponent* MeshToSet)
 	{
-		vectors[col].rows[row].tileMesh = MeshToSet;
+		vectors[col].rows[row].land = MeshToSet;
 	};
 
 
