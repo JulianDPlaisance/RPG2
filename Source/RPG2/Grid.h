@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "ProceduralMeshComponent.h"
 #include "GameFramework/Pawn.h"
 #include "Grid.generated.h"
 
@@ -31,6 +30,8 @@ struct FRows
 	GENERATED_BODY()
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Grid Rows", Category = "Grid"))
 	TArray<FGridInfo> rows;
+
+
 };
 
 UCLASS()
@@ -60,9 +61,4 @@ public:
 	{
 		vectors[col].rows[row].land = MeshToSet;
 	};
-
-
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "GridArray", Category = "Grid"))
-	//TArray<AGridRow*> Columns;
-
 };
