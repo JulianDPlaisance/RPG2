@@ -12,6 +12,7 @@ UCharacterComponent::UCharacterComponent()
 	if (stat != nullptr)
 	{
 		stat = CreateDefaultSubobject<UStatHolder>(TEXT("statt"));
+		stat
 	}
 	if (weapon != nullptr)
 	{
