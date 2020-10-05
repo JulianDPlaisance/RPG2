@@ -10,7 +10,7 @@
  * 
  */
 
-UENUM(BlueprintType, Meta = (Bitflags))
+UENUM(Meta = (Bitflags))
 enum class EStatName : uint8
 {
     STRENGTH = 0x00 UMETA(DisplayName = "Str"), //the capacity of an object or substance to withstand great force or pressure.

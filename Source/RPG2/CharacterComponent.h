@@ -18,9 +18,9 @@ public:
 	// Sets default values for this component's properties
 	UCharacterComponent();
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, meta = (DisplayName = "Stats Holder", Category = "Char_Stat"))
-		UStatHolder* stat = CreateDefaultSubobject<UStatHolder>(TEXT("statt"));
+		UStatHolder* stat;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, meta = (DisplayName = "Weapon Holder", Category = "Char_Stat"))
-		UBaseWeapon* weapon = CreateDefaultSubobject<UBaseWeapon>(TEXT("weaponn"));
+		UBaseWeapon* weapon;
 
 protected:
 	// Called when the game starts

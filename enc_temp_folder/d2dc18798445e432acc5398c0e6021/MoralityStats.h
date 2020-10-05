@@ -10,7 +10,7 @@
  * 
  */
 
-UENUM(BlueprintType, Meta = (Bitflags))
+UENUM(Meta = (Bitflags))
 enum class EMorality : uint8
 {
 	SELFLESS = 0x00 UMETA(DisplayName = "Selfless"),		//concerned more with the needs and wishes of others than with one's own
