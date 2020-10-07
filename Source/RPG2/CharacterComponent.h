@@ -10,17 +10,13 @@
 
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class RPG2_API UCharacterComponent : public UActorComponent
+class RPG2_API UCombatCalculator : public UActorComponent
 {
 	GENERATED_BODY()
 
 public:	
 	// Sets default values for this component's properties
-	UCharacterComponent();
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, meta = (DisplayName = "Stats Holder", Category = "Char_Stat"))
-		UStatHolder* stat;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, meta = (DisplayName = "Weapon Holder", Category = "Char_Stat"))
-		UBaseWeapon* weapon;
+	UCombatCalculator();
 
 protected:
 	// Called when the game starts
@@ -31,22 +27,16 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	UFUNCTION(BlueprintCallable, meta = (Category = "Char_Battle"))
-		int getAttackChance(UCharacterComponent* other);
+		int getAttackChance(UStatHolder* atk, UBaseWeapon* wep);
 	UFUNCTION(BlueprintCallable, meta = (Category = "Char_Battle"))
-		int getEvadeChance(UCharacterComponent* other);
+		int getEvadeChance(UStatHolder* tar);
 	UFUNCTION(BlueprintCallable, meta = (Category = "Char_Battle"))
-		int getCritChance(UCharacterComponent* other);
+		int getCritChance(UStatHolder* atk, UStatHolder* target, UBaseWeapon* wep);
 	UFUNCTION(BlueprintCallable, meta = (Category = "Char_Battle"))
-		int getAvoidCritChance(UCharacterComponent* other);
+		int getAvoidCritChance(UStatHolder* atk, UStatHolder* target, UBaseWeapon* wep);
 	UFUNCTION(BlueprintCallable, meta = (Category = "Char_Battle"))
-		TArray<int> getMorals(UCharacterComponent* other);
+		TArray<int> getMorals(UStatHolder* atk);
 
 	UFUNCTION(BlueprintCallable, meta = (Category = "Char_Holders"))
-		UStatHolder* getStats() { return stat; }
-	UFUNCTION(BlueprintCallable, meta = (Category = "Char_Holders"))
-		UBaseWeapon* getWeapon() { return weapon; }
-	UFUNCTION(BlueprintCallable, meta = (Category = "Char_Holders"))
-		void setStats(UStatHolder* val) { stat = val; }
-	UFUNCTION(BlueprintCallable, meta = (Category = "Char_Holders"))
-		void setWeapon(UBaseWeapon* val) { weapon = val; }
+		UStatHolder* getStats(UStatHolder* atk);
 };

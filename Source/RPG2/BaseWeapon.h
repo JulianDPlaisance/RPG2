@@ -9,17 +9,17 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class RPG2_API UBaseWeapon : public UActorComponent
 {
 	GENERATED_BODY()
 
 public:
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, meta = (DisplayName = "Weapon_Accuracy", Category = "Weapon"))
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta = (DisplayName = "Weapon_Accuracy", Category = "Weapon"))
 		int accuracy = 100;
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, meta = (DisplayName = "Weapon_Power", Category = "Weapon"))
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta = (DisplayName = "Weapon_Power", Category = "Weapon"))
 		int power = 10;
-	UPROPERTY(BlueprintReadWrite, SaveGame, VisibleAnywhere, meta = (DisplayName = "Weapon_Durability", Category = "Weapon"))
+	UPROPERTY(BlueprintReadWrite, SaveGame, EditAnywhere, meta = (DisplayName = "Weapon_Durability", Category = "Weapon"))
 		int Durability = 5;
 
 	

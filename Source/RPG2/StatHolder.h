@@ -17,11 +17,11 @@ class RPG2_API UStatHolder : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UStatHolder();
-	UPROPERTY(BlueprintReadOnly, SaveGame, VisibleAnywhere, meta = (DisplayName = "HP", Category = "Stat"))
+	UPROPERTY(BlueprintReadWrite, SaveGame, EditAnywhere, meta = (DisplayName = "HP", Category = "Stat"))
 		int HP = 10;
-	UPROPERTY(BlueprintReadOnly, SaveGame, VisibleAnywhere, meta = (DisplayName = "Weapon Skill", Category = "Stat"))
+	UPROPERTY(BlueprintReadWrite, SaveGame, EditAnywhere, meta = (DisplayName = "Weapon Skill", Category = "Stat"))
 		float WeaponSkill = 0.9f;
-	UPROPERTY(BlueprintReadOnly, SaveGame, VisibleAnywhere, meta = (DisplayName = "Stat Array", Category = "Stat"))
+	UPROPERTY(BlueprintReadWrite, SaveGame, EditAnywhere, meta = (DisplayName = "Stat Array", Category = "Stat"))
 		TArray<int32> StatArray =
 	{
 		10, //Strength
@@ -34,7 +34,7 @@ public:
 		10, //Charisma
 		10  //Empathy
 	};
-	UPROPERTY(BlueprintReadOnly, SaveGame, VisibleAnywhere, meta = (DisplayName = "Morality Array", Category = "Stat"))
+	UPROPERTY(BlueprintReadWrite, SaveGame, EditAnywhere, meta = (DisplayName = "Morality Array", Category = "Stat"))
 		TArray<int32> MoralityArray =
 	{
 		10, //Selfless

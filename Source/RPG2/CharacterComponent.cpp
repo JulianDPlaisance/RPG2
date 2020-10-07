@@ -4,27 +4,19 @@
 #include "CharacterComponent.h"
 
 // Sets default values for this component's properties
-UCharacterComponent::UCharacterComponent()
+UCombatCalculator::UCombatCalculator()
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = false;
-	if (stat != nullptr)
-	{
-		stat = CreateDefaultSubobject<UStatHolder>(TEXT("statt"));
-		stat
-	}
-	if (weapon != nullptr)
-	{
-		weapon = CreateDefaultSubobject<UBaseWeapon>(TEXT("weaponn"));
-	}
+
 
 	// ...
 }
 
 
 // Called when the game starts
-void UCharacterComponent::BeginPlay()
+void UCombatCalculator::BeginPlay()
 {
 	Super::BeginPlay();
 
@@ -34,40 +26,45 @@ void UCharacterComponent::BeginPlay()
 
 
 // Called every frame
-void UCharacterComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
+void UCombatCalculator::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
 	// ...
 }
 
-int UCharacterComponent::getAttackChance(UCharacterComponent* other)
+int UCombatCalculator::getAttackChance(UStatHolder* atk, UBaseWeapon* wep)
 {
-	float weaponAcc = weapon->accuracy * stat->getWeaponSkill();
-	int32 charAcc = (stat->getStat(EStatName::AGILITY) * 4) + (stat->getStat(EStatName::INTUITION) * 2) + (stat->getStat(EStatName::EMPATHY)) + (stat->getStat(EStatName::LUCK) / 2);
+	float weaponAcc = wep->accuracy * atk->getWeaponSkill();
+	int32 charAcc = (atk->getStat(EStatName::AGILITY) * 4) + (atk->getStat(EStatName::INTUITION) * 2) + (atk->getStat(EStatName::EMPATHY)) + (atk->getStat(EStatName::LUCK) / 2);
 	int32 totalAcc = weaponAcc + (charAcc / 2);
 	return totalAcc;
 }
 
-int UCharacterComponent::getEvadeChance(UCharacterComponent* other)
+int UCombatCalculator::getEvadeChance(UStatHolder* tar)
 {
-	int32 evasionAgi = (stat->getStat(EStatName::AGILITY) * 2);
-	int32 evasionDiv = (stat->getStat(EStatName::INTUITION) * 2) + (stat->getStat(EStatName::LUCK)) + (stat->getStat(EStatName::EMPATHY) * 3);
+	int32 evasionAgi = (tar->getStat(EStatName::AGILITY) * 2);
+	int32 evasionDiv = (tar->getStat(EStatName::INTUITION) * 2) + (tar->getStat(EStatName::LUCK)) + (tar->getStat(EStatName::EMPATHY) * 3);
 	int32 totalEvasion = evasionAgi + (evasionDiv / 2);
 	return totalEvasion;
 }
 
-int UCharacterComponent::getCritChance(UCharacterComponent* other)
+int UCombatCalculator::getCritChance(UStatHolder* atk, UStatHolder* target, UBaseWeapon* wep)
 {
 	return 0;
 }
 
-int UCharacterComponent::getAvoidCritChance(UCharacterComponent* other)
+int UCombatCalculator::getAvoidCritChance(UStatHolder* atk, UStatHolder* target, UBaseWeapon* wep)
 {
 	return 0;
 }
 
-TArray<int> UCharacterComponent::getMorals(UCharacterComponent* other)
+TArray<int> UCombatCalculator::getMorals(UStatHolder* tar)
 {
 	return TArray<int32>();
+}
+
+UStatHolder* UCombatCalculator::getStats(UStatHolder* tar)
+{
+	return nullptr;
 }
