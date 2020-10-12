@@ -51,12 +51,20 @@ int UCombatCalculator::getEvadeChance(UStatHolder* tar)
 
 int UCombatCalculator::getCritChance(UStatHolder* atk, UStatHolder* target, UBaseWeapon* wep)
 {
-	return 0;
+	int32 critInt = (atk->getStat(EStatName::INTUITION) * 3);
+	int32 critDiv = (atk->getStat(EStatName::AGILITY) + atk->getStat(EStatName::PERCEPTION) + (2 * atk->getStat(EStatName::LUCK)));
+	// Might add critical chance to weapons
+	//int32 critWep = wep->
+	int32 totalCrit = ((critInt * ((critDiv / 3)) + 1) - target->getStat(EStatName::VITALITY));
+	return totalCrit;
 }
 
-int UCombatCalculator::getAvoidCritChance(UStatHolder* atk, UStatHolder* target, UBaseWeapon* wep)
+int UCombatCalculator::getAvoidCritChance(UStatHolder* tar)
 {
-	return 0;
+	int32 avoKnown = (tar->getStat(EStatName::PERCEPTION) + tar->getStat(EStatName::AGILITY));
+	int32 avoSense = (tar->getStat(EStatName::INTUITION) + tar->getStat(EStatName::LUCK) * 2);
+	int32 avoTotal = (avoKnown * 2 + avoSense / 2) / 2;
+	return avoTotal;
 }
 
 TArray<int> UCombatCalculator::getMorals(UStatHolder* tar)

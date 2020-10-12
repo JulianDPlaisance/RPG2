@@ -33,7 +33,7 @@ public:
 	UFUNCTION(BlueprintCallable, meta = (Category = "Char_Battle"))
 		int getCritChance(UStatHolder* atk, UStatHolder* target, UBaseWeapon* wep);
 	UFUNCTION(BlueprintCallable, meta = (Category = "Char_Battle"))
-		int getAvoidCritChance(UStatHolder* atk, UStatHolder* target, UBaseWeapon* wep);
+		int getAvoidCritChance(UStatHolder* target);
 	UFUNCTION(BlueprintCallable, meta = (Category = "Char_Battle"))
 		TArray<int> getMorals(UStatHolder* atk);
 
