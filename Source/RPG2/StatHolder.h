@@ -17,6 +17,10 @@ class RPG2_API UStatHolder : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UStatHolder();
+	UPROPERTY(BlueprintReadWrite, SaveGame, EditAnywhere, meta = (DisplayName = "Level", Category = "Stat"))
+		int level = 1;
+	UPROPERTY(BlueprintReadWrite, SaveGame, EditAnywhere, meta = (DisplayName = "Exp", Category = "Stat"))
+		int experience = 0;
 	UPROPERTY(BlueprintReadWrite, SaveGame, EditAnywhere, meta = (DisplayName = "HP", Category = "Stat"))
 		int HP = 10;
 	UPROPERTY(BlueprintReadWrite, SaveGame, EditAnywhere, meta = (DisplayName = "Weapon Skill", Category = "Stat"))
@@ -53,6 +57,10 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
+		int32 getLevel() { return level; }
+	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
+		int32 getExperience() { return experience; }
+	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		int32 getHP() { return HP; }
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		float getWeaponSkill() { return WeaponSkill; }
@@ -61,6 +69,10 @@ public:
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		int32 getMoral(EMorality MoralToGet) { return MoralityArray[(uint8)MoralToGet]; }
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
+		void setLevel(int32 val) { level = val; }
+	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
+		void setExperience(int32 val) { experience = val; }
+	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		void setHP(int32 val) { HP = val; }
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		void setWeaponSkill(float val) { WeaponSkill = val; }
@@ -68,6 +80,10 @@ public:
 		void setStat(EStatName StatToSet, int32 val) { StatArray[(uint8)StatToSet % 9] = val; }
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		void setMoral(EMorality MoralToSet, int32 val) { MoralityArray[(uint8)MoralToSet] = val; }
+	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
+		void addLevel(int32 val);
+	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
+		void addExperience(int32 val);
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		void addHP(int32 val);
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))

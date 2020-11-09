@@ -32,6 +32,22 @@ void UStatHolder::TickComponent(float DeltaTime, ELevelTick TickType, FActorComp
 	// ...
 }
 
+void UStatHolder::addLevel(int32 val)
+{
+	level += val;
+}
+
+void UStatHolder::addExperience(int32 val)
+{
+	experience += val;
+	if (experience >= 100)
+	{
+		int tmp = experience / 100;
+		addLevel(tmp);
+		experience = experience % 100;
+	}
+}
+
 void UStatHolder::addHP(int32 val)
 {
 	HP += val;
