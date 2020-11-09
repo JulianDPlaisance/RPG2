@@ -6,6 +6,7 @@
 #include "Components/ActorComponent.h"
 #include "MoralityStats.h"
 #include "BaseStats.h"
+#include <algorithm>
 #include "StatHolder.generated.h"
 
 
@@ -37,6 +38,19 @@ public:
 		10, //Luck
 		10, //Charisma
 		10  //Empathy
+	};
+	UPROPERTY(BlueprintReadWrite, SaveGame, EditAnywhere, meta = (DisplayName = "Percentage-Up Array", Category = "Stat"))
+		TArray<float> statUp =
+	{
+		0.1, //Str
+		0.1, //Agi
+		0.1, //Vit
+		0.1, //Rea
+		0.1, //Int
+		0.1, //Per
+		0.1, //Luc
+		0.1, //Cha
+		0.1  //Emp
 	};
 	UPROPERTY(BlueprintReadWrite, SaveGame, EditAnywhere, meta = (DisplayName = "Morality Array", Category = "Stat"))
 		TArray<int32> MoralityArray =
@@ -92,5 +106,7 @@ public:
 		void modStat(EStatName StatToMod, int32 amt);
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		void modMoral(EMorality MoralToMod, int32 amt);
+	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
+		void bRaiseStat(EStatName StatToMod);
 		
 };
