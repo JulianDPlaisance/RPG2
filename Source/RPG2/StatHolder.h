@@ -81,7 +81,7 @@ public:
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		int32 getStat(EStatName StatToGet) { return StatArray[(uint8)StatToGet % 9]; }
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
-		int32 getStatUp(EStatName StatToGet) { return statUp[(uint8)StatToGet % 9]; }
+		float getStatUp(EStatName StatToGet) { return statUp[(uint8)StatToGet % 9]; }
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		int32 getMoral(EMorality MoralToGet) { return MoralityArray[(uint8)MoralToGet]; }
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
