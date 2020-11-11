@@ -105,6 +105,11 @@ void UStatHolder::modStat(EStatName StatToMod, int32 amt)
 	}
 }
 
+void UStatHolder::modStatUp(EStatName StatToMod, float amt)
+{
+	statUp[(uint8)StatToMod] += amt;
+}
+
 void UStatHolder::modMoral(EMorality MoralToMod, int32 amt)
 {
 	MoralityArray[(uint8)MoralToMod] += amt;

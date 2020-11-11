@@ -81,6 +81,8 @@ public:
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		int32 getStat(EStatName StatToGet) { return StatArray[(uint8)StatToGet % 9]; }
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
+		int32 getStatUp(EStatName StatToGet) { return statUp[(uint8)StatToGet % 9]; }
+	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		int32 getMoral(EMorality MoralToGet) { return MoralityArray[(uint8)MoralToGet]; }
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		void setLevel(int32 val) { level = val; }
@@ -93,6 +95,8 @@ public:
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		void setStat(EStatName StatToSet, int32 val) { StatArray[(uint8)StatToSet % 9] = val; }
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
+		void setStatUp(EStatName StatToSet, float val) { statUp[(uint8)StatToSet % 9] = val; }
+	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		void setMoral(EMorality MoralToSet, int32 val) { MoralityArray[(uint8)MoralToSet] = val; }
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		void addLevel(int32 val);
@@ -104,6 +108,8 @@ public:
 		void addWeaponSkill(float val);
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		void modStat(EStatName StatToMod, int32 amt);
+	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
+		void modStatUp(EStatName StatToMod, float amt);
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
 		void modMoral(EMorality MoralToMod, int32 amt);
 	UFUNCTION(BlueprintCallable, meta = (Category = "Stat"))
