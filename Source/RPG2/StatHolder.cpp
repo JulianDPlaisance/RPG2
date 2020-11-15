@@ -52,7 +52,7 @@ void UStatHolder::addLevel(int32 val)
 
 void UStatHolder::addExperience(int32 val)
 {
-	experience += val;
+	experience += (val / level);
 	if (experience >= 100)
 	{
 		int tmp = experience / 100;
